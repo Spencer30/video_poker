@@ -1,12 +1,12 @@
 import React from 'react';
 import GameButton from './GameButton';
 
-const GameButonContainer = () => {
+const GameButonContainer = ({betOne, maxBet, deal}) => {
     return <div style={styles.buttonContainer}>
         <div style={styles.buttonRow}>
-        <GameButton title="Bet One" />
-        <GameButton title="Deal" />
-        <GameButton title="Bet Max" />
+        <GameButton title="Bet One" onClick={betOne}/>
+        <GameButton title="Deal" onClick={deal}/>
+        <GameButton title="Bet Max" onClick={maxBet} />
         </div>
     </div>
 }

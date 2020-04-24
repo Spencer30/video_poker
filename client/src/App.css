@@ -64,9 +64,10 @@ td {
   color: white;
   width: 225px;
   height: 60px;
-  font-size: 24;
+  font-size: 24px;
   border: white 4px solid;
   border-radius: 20px;
+  outline: none;
 }
 
 .acctContainer {
@@ -113,6 +114,7 @@ td {
       margin-bottom: 8rem;
       margin-left: .5rem;
       margin-right: .5rem;
+      font-size: 11px;
     }
     .playerCardContainer{
       width: 100%;
@@ -137,7 +139,7 @@ td {
 
   @media only screen 
   and (min-width: 645px) 
-  and (max-width: 1655px) {
+  and (max-width: 1035px) {
     .appContainer{
       height: 100vh;
     }
@@ -156,6 +158,51 @@ td {
       margin-bottom: 4rem;
       margin-left: .5rem;
       margin-right: .5rem;
+      font-size: 15px;
+    }
+    .playerCardContainer{
+      width: 100%;
+    }
+
+    .acctContainer {
+      width: 100%;
+      margin: 0;
+      margin-left: 1.5rem;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 0;
+    }
+
+    h3{
+      font-size: 12px;
+    }
+    
+  }
+
+  @media only screen 
+  and (min-width: 1036px) 
+  and (max-width: 1645px) {
+    .appContainer{
+      height: 100vh;
+    }
+    .playingCard{
+      width: 175px;
+      height: 250px;
+      border-radius: 10px;
+    }
+    table {
+      font-size: 9px;
+    }
+    .gameButton {
+      width: 100px;
+      height: 50px;
+      border-radius: 10px;
+      margin-bottom: 4rem;
+      margin-left: .5rem;
+      margin-right: .5rem;
+      font-size: 15px;
     }
     .playerCardContainer{
       width: 100%;

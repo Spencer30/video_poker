@@ -1,14 +1,16 @@
 import React from 'react';
+import { useState } from 'react';
 
 const PlayingCard = props => {
+    let cardImg = props.card.img;
     const styles = {
         playingCard: {
             border: props.selected ? '8px solid yellow' : 'none',
         }
     }
     return (
-        <div>
-           <img className="playingCard" src={require('../images/2H.png')} style={styles.playingCard} alt="playing card" />
+        <div onClick={props.selectCard}>
+           <img className="playingCard"  src={cardImg} style={styles.playingCard} alt="playing card" />
         </div>
     )
 }

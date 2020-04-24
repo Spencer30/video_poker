@@ -2,7 +2,7 @@ import React from "react";
 import WinningHands from "./WinningHands";
 import AccountDisplay from "./AccountDisplay";
 
-const WinningContainer = () => {
+const WinningContainer = ({balance, wins, winPer}) => {
   return (
     <div style={styles.winContainer}>
       <div style={styles.rowContainer}>
@@ -10,7 +10,7 @@ const WinningContainer = () => {
           <WinningHands />
         </div>
         <div style={styles.acctRow}>
-          <AccountDisplay />
+          <AccountDisplay balance={balance} wins={wins} winPer={winPer}/>
         </div>
       </div>
     </div>
