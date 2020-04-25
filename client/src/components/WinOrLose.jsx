@@ -12,7 +12,7 @@ const WinOrLose = props => {
         }
     }
     return <div style={styles.winLoseContainer}>
-       <h2>Click Deal To Start A New Hand</h2>
+       <h2>{props.gameText}</h2>
     </div>
 }
 
