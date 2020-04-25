@@ -138,6 +138,7 @@ function App() {
     }
     if(dealState === 2){
       let winner;
+      let winMessage = 'You Lose!';
 
       //Check and see what cards are being held
       if(selectOne) {
@@ -165,33 +166,43 @@ function App() {
       setSlotFive(() => cardFive);
 
       //Check for game winner
-      // let royal = royalFlush(cardOne, cardTwo, cardThree, cardFour, cardFive);
-      // let royalTest = royalFlush(playingCards[5], playingCards[9], playingCards[1], playingCards[13], playingCards[17]);
-      // let straightFlushTest = straightFlush(playingCards[45], playingCards[49], playingCards[1], playingCards[41], playingCards[37])
-      // console.log(playingCards[45], playingCards[49], playingCards[1], playingCards[41], playingCards[37])
-      // console.log(straightFlushTest);
-      // let fourOfKindTest = fourOfKind(playingCards[7], playingCards[6], playingCards[5], playingCards[40], playingCards[37])
-      // console.log(playingCards[7], playingCards[6], playingCards[5], playingCards[40], playingCards[37])
-      // console.log(fourOfKindTest);
-      // let fullHouseTest = fullHouse(playingCards[7], playingCards[6], playingCards[41], playingCards[42], playingCards[5])
-      // console.log(playingCards[7], playingCards[6], playingCards[41], playingCards[42], playingCards[5])
-      // console.log(fullHouseTest);
-      // let flushTest = flush(playingCards[7], playingCards[11], playingCards[15], playingCards[23], playingCards[1])
-      //           console.log(playingCards[7], playingCards[11], playingCards[15], playingCards[23], playingCards[1])
-      // console.log(flushTest);
-      // let straightTest = straight(playingCards[0], playingCards[51], playingCards[38], playingCards[40], playingCards[44])
-      //                 console.log(playingCards[0], playingCards[51], playingCards[38], playingCards[40], playingCards[44])
-      // console.log(straightTest);
-      // let threeKindTest = threeOfKind(playingCards[0], playingCards[51], playingCards[26], playingCards[5], playingCards[4])
-      //                     console.log(playingCards[0], playingCards[51], playingCards[26], playingCards[5], playingCards[4])
-      // console.log(threeKindTest);
-      let twoPairTest = twoPair(playingCards[13], playingCards[51], playingCards[26], playingCards[4], playingCards[15])
-                    console.log(playingCards[13], playingCards[51], playingCards[26], playingCards[4], playingCards[15])
-              console.log(twoPairTest);
+      let isJacks = jacksOrBetter(cardOne, cardTwo, cardThree, cardFour, cardFive);
+      let isTwoPair = twoPair(cardOne, cardTwo, cardThree, cardFour, cardFive);
+      let isThreeKind = threeOfKind(cardOne, cardTwo, cardThree, cardFour, cardFive);
+      let isStraight = straight(cardOne, cardTwo, cardThree, cardFour, cardFive);
+      let isFlush = flush(cardOne, cardTwo, cardThree, cardFour, cardFive);
+      let isFullHouse = fullHouse(cardOne, cardTwo, cardThree, cardFour, cardFive);
+      let isFourOfKind = fourOfKind(cardOne, cardTwo, cardThree, cardFour, cardFive);
+      let isStraightFlush = straightFlush(cardOne, cardTwo, cardThree, cardFour, cardFive);
+      let isRoyalFlush = royalFlush(cardOne, cardTwo, cardThree, cardFour, cardFive);
 
-      // let jacksTest = jacksOrBetter(playingCards[13], playingCards[51], playingCards[26], playingCards[21], playingCards[15])
-      //                   console.log(playingCards[13], playingCards[51], playingCards[26], playingCards[21], playingCards[15])
-      // console.log(jacksTest);
+      if(isJacks){
+        winMessage = 'You Win! Jacks or Better!'
+      }
+      if(isTwoPair) {
+        winMessage = 'You Win! Two Pair!'
+      }
+      if(isThreeKind){
+        winMessage = 'You Win! Three of a Kind!'
+      }
+      if(isStraight) {
+        winMessage = 'You Win! Straight!'
+      }
+      if(isFlush) {
+        winMessage = 'You Win! Flush!'
+      }
+      if(isFullHouse) {
+        winMessage = 'You Win! Full House!'
+      }
+      if(isFourOfKind) {
+        winMessage = 'You Win! Four of a Kind!!'
+      }
+      if(isStraightFlush) {
+        winMessage = 'You Win! Straight Flush!!!'
+      }
+      if(isRoyalFlush) {
+        winMessage = 'You Win! ROYAL FLUSH!!!!'
+      }
       //Turn selected to false
       setSelectOne(() => false);
       setSelectTwo(() => false);
@@ -202,7 +213,7 @@ function App() {
       //Calculate Balance, Wins and Win Percentage
 
 
-      setGameText(() => 'You Win! Or You Lose! Not sure ')
+      setGameText(() => winMessage);
       dealState=0;
       cardOneHold = false;
       cardTwoHold = false;
@@ -242,3 +253,33 @@ function App() {
 }
 
 export default App;
+
+
+  //This was used for TESTING PURPOSES
+
+      // let royalTest = royalFlush(playingCards[5], playingCards[9], playingCards[1], playingCards[13], playingCards[17]);
+      // let straightFlushTest = straightFlush(playingCards[45], playingCards[49], playingCards[1], playingCards[41], playingCards[37])
+      // console.log(playingCards[45], playingCards[49], playingCards[1], playingCards[41], playingCards[37])
+      // console.log(straightFlushTest);
+      // let fourOfKindTest = fourOfKind(playingCards[7], playingCards[6], playingCards[5], playingCards[40], playingCards[37])
+      // console.log(playingCards[7], playingCards[6], playingCards[5], playingCards[40], playingCards[37])
+      // console.log(fourOfKindTest);
+      // let fullHouseTest = fullHouse(playingCards[7], playingCards[6], playingCards[41], playingCards[42], playingCards[5])
+      // console.log(playingCards[7], playingCards[6], playingCards[41], playingCards[42], playingCards[5])
+      // console.log(fullHouseTest);
+      // let flushTest = flush(playingCards[7], playingCards[11], playingCards[15], playingCards[23], playingCards[1])
+      //           console.log(playingCards[7], playingCards[11], playingCards[15], playingCards[23], playingCards[1])
+      // console.log(flushTest);
+      // let straightTest = straight(playingCards[0], playingCards[51], playingCards[38], playingCards[40], playingCards[44])
+      //                 console.log(playingCards[0], playingCards[51], playingCards[38], playingCards[40], playingCards[44])
+      // console.log(straightTest);
+      // let threeKindTest = threeOfKind(playingCards[0], playingCards[51], playingCards[26], playingCards[5], playingCards[4])
+      //                     console.log(playingCards[0], playingCards[51], playingCards[26], playingCards[5], playingCards[4])
+      // console.log(threeKindTest);
+      // let twoPairTest = twoPair(playingCards[7], playingCards[6], playingCards[41], playingCards[42], playingCards[5])
+      //               console.log(playingCards[7], playingCards[6], playingCards[41], playingCards[42], playingCards[5])
+      //         console.log(twoPairTest);
+
+      // let jacksTest = jacksOrBetter(playingCards[13], playingCards[51], playingCards[26], playingCards[21], playingCards[15])
+      //                   console.log(playingCards[13], playingCards[51], playingCards[26], playingCards[21], playingCards[15])
+      // console.log(jacksTest);

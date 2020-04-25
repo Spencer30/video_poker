@@ -214,6 +214,7 @@ export const twoPair = (card1, card2, card3, card4, card5) => {
 export const jacksOrBetter = (card1, card2, card3, card4, card5) => {
     let unsortedHand = [card1, card2, card3, card4, card5];
     let hand  = unsortedHand.filter(card => card.value > 10);
+    console.log(hand)
     hand = hand.sort((x,y) => x.value - y.value);
     for (let i=0; i<hand.length; i++){
         if(hand[i+1] === undefined){return false}
