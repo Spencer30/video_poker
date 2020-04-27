@@ -141,12 +141,32 @@ export const threeOfKind = (card1, card2, card3, card4, card5) => {
     return false;
 }
 
-export const twoPair = (card1, card2, card3, card4, card5) => {
+
+export const twoPair = (card1, card2, card3, card4, card5) =>{
+    let pairs = 0;
+    let firstPair = 0;
+    let hand = [card1, card2, card3, card4, card5];
+    hand = hand.sort((x,y) => x.value - y.value);
+    //[3,3,4,5,5] [6,9,9,14,14]
+    for(let i=0; i<hand.length -1; i++){
+        if(hand[i].value === hand[i+1].value){
+            if(firstPair === 0){
+                firstPair = hand[i].value;
+                pairs++;
+            } else {
+                if(hand[i].value !== firstPair){
+                    pairs++;
+                }
+            }
+        }
+    }
+    return pairs === 2;
+}
+export const twoPairOld = (card1, card2, card3, card4, card5) => {
     let pairOne = [];
     let pairTwo = [];
     let hand = [card1, card2, card3, card4, card5];
     hand = hand.sort((x,y) => x.value - y.value);
-    //[3,3,4,5,5]
     if(hand[0].value === hand[1].value){
         pairOne.push(hand[0], hand[1]);
         if(hand[2].value === pairOne[0].value){

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import CardContainer from './components/CardContainer';
 import GameButtonContainer from './components/GameButtonContainer';
@@ -79,6 +79,21 @@ function App() {
   const [bet, setBet] = useState(1);
   const [gameText, setGameText] = useState('Click Deal To Start A New Hand');
 
+  useEffect(() => {
+    let gameInfo = localStorage.getItem('gameInfo');
+    gameInfo = JSON.parse(gameInfo);
+    console.log(gameInfo);
+    if(!gameInfo){
+      return;
+    }else{
+      setBalance(() => gameInfo.balance);
+      winCount = gameInfo.winCount;
+      handsPlayed = gameInfo.handsPlayed;
+      setWins(() => winCount);
+      let formattedWinPer = Math.floor((winCount / handsPlayed)*100);
+      setWinPer(() => formattedWinPer);
+    }
+  }, []);
   const newGame = () => {
     if(dealState !== 0){return}
     let userAnswer = window.confirm('Are You Sure You Want To Start A New Game? Stats will reset.');
@@ -274,6 +289,9 @@ function App() {
       }
       let formattedWinPer = Math.floor((winCount / handsPlayed)*100);
       setWinPer(() => formattedWinPer)
+
+      let gameStorage = {balance, winCount, handsPlayed}
+      localStorage.setItem('gameInfo', JSON.stringify(gameStorage));
 
       setGameText(() => winMessage);
       dealState=0;
