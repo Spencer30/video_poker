@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AccountDisplay = ({balance, wins, winPer}) => {
+const AccountDisplay = ({balance, wins, winPer, newGame}) => {
     return <div className="acctContainer">
         <div style={{textAlign:'center', color:'white'}}>
             <h2>Game Info</h2>
@@ -11,7 +11,7 @@ const AccountDisplay = ({balance, wins, winPer}) => {
             <h3>Win Percentage: <span style={{color:"#F67280"}}>{winPer}</span> %</h3>
             </div>
             <div style={{textAlign:'center', color:'white'}}>
-            <button className="gameInfoBtn">New Game</button>
+            <button onClick={newGame} className="gameInfoBtn">New Game</button>
             </div>
     </div>
 }

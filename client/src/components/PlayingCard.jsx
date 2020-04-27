@@ -8,8 +8,8 @@ const PlayingCard = props => {
         }
     }
     return (
-        <div onClick={props.selectCard}>
-           <img className="playingCard"  src={cardImg} style={styles.playingCard} alt="playing card" />
+        <div onClick={props.selectCard} >
+           <img className={props.selected ? 'playingCardSelected' : 'playingCard'} src={cardImg} style={styles.playingCard} alt="playing card" />
         </div>
     )
 }

@@ -58,6 +58,11 @@ td {
   height: 270px;
   border-radius: 25px;
 }
+.playingCardSelected {
+  width: 192px;
+  height: 262px;
+  border-radius: 25px;
+}
 
 .gameButton{
   background-color:#F67280;
@@ -104,6 +109,11 @@ td {
       height: 100px;
       border-radius: 10px;
     }
+    .playingCardSelected {
+      width: 33px;
+      height: 92px;
+      border-radius: 10px;
+    }
     table {
       font-size: 9px;
     }
@@ -148,6 +158,11 @@ td {
       height: 175px;
       border-radius: 10px;
     }
+    .playingCardSelected {
+      width: 92px;
+      height: 167px;
+      border-radius: 10px;
+    }
     table {
       font-size: 9px;
     }
@@ -190,6 +205,11 @@ td {
     .playingCard{
       width: 175px;
       height: 250px;
+      border-radius: 10px;
+    }
+    .playingCardSelected {
+      width: 167px;
+      height: 242px;
       border-radius: 10px;
     }
     table {

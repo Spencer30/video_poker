@@ -27,34 +27,15 @@ export const straightFlush = (card1, card2, card3, card4, card5) => {
             return false;
         }
     }
-    if(card1.hasAltValue || card2.hasAltValue || card3.hasAltValue || card4.hasAltValue || card5.hasAltValue){
-        if(card1.hasAltValue){
-            card1.value = 1;
+    if(hand[4].value === 14 && hand[3].value !== 14){
+        if(hand[0].value===2 && hand[1].value===3 && hand[2].value===4 && hand[3].value===5){
+            return true;
         }
-        if(card2.hasAltValue) {
-            card2.value = 1;
-        }
-        if(card3.hasAltValue) {
-            card3.value = 1;
-        }
-        if(card4.hasAltValue) {
-            card4.value = 1;
-        }
-        if(card5.hasAltValue) {
-            card5.value = 1;
-        }
-        hand = hand.sort((x,y) => x.value - y.value);
-        for(let i=1; i<4; i++){
-            if(hand[i].value - 1 !== hand[i-1].value){
-                return false;
-            }
-        }
+    } 
 
-    } else {
-        for(let i=1; i<4; i++){
-            if(hand[i].value - 1 !== hand[i-1].value){
-                return false;
-        }
+    for(let i=1; i<4; i++){
+        if(hand[i].value - 1 !== hand[i-1].value){
+            return false;
     }
     }
     return true;
@@ -133,35 +114,16 @@ export const flush = (card1, card2, card3, card4, card5) => {
 export const straight = (card1, card2, card3, card4, card5) => {
     let hand = [card1, card2, card3, card4, card5];
     hand = hand.sort((x,y) => x.value - y.value);
-    console.log(card1)
-    if(card1.hasAltValue || card2.hasAltValue || card3.hasAltValue || card4.hasAltValue || card5.hasAltValue){
-        if(card1.hasAltValue){
-            card1.value = 1;
+    //Check to see if final card is the only ace. If so, check it's alt value and return true if the other 4 cards 
+    if(hand[4].value === 14 && hand[3].value !== 14){
+        if(hand[0].value===2 && hand[1].value===3 && hand[2].value===4 && hand[3].value===5){
+            return true;
         }
-        if(card2.hasAltValue) {
-            card2.value = 1;
+    } 
+    for(let i=1; i<4; i++){
+        if(hand[i].value - 1 !== hand[i-1].value){
+            return false;
         }
-        if(card3.hasAltValue) {
-            card3.value = 1;
-        }
-        if(card4.hasAltValue) {
-            card4.value = 1;
-        }
-        if(card5.hasAltValue) {
-            card5.value = 1;
-        }
-        hand = hand.sort((x,y) => x.value - y.value);
-        for(let i=1; i<4; i++){
-            if(hand[i].value - 1 !== hand[i-1].value){
-                return false;
-            }
-        }
-    } else {
-        for(let i=1; i<4; i++){
-            if(hand[i].value - 1 !== hand[i-1].value){
-                return false;
-        }
-    }
     }
     return true;
 }
@@ -184,6 +146,7 @@ export const twoPair = (card1, card2, card3, card4, card5) => {
     let pairTwo = [];
     let hand = [card1, card2, card3, card4, card5];
     hand = hand.sort((x,y) => x.value - y.value);
+    //[3,3,4,5,5]
     if(hand[0].value === hand[1].value){
         pairOne.push(hand[0], hand[1]);
         if(hand[2].value === pairOne[0].value){
@@ -193,7 +156,7 @@ export const twoPair = (card1, card2, card3, card4, card5) => {
         } else {
             if(hand[2].value === hand[3].value){pairTwo.push(hand[2], hand[3])}
             if(hand[2].value === hand[4].value){pairTwo.push(hand[2], hand[4])}
-            if(hand[3].value === hand[4].value){pairTwo.push(hand[2], hand[4])}
+            if(hand[3].value === hand[4].value){pairTwo.push(hand[3], hand[4])}
         }
     }else{
         pairOne.push(hand[0]);
@@ -206,6 +169,7 @@ export const twoPair = (card1, card2, card3, card4, card5) => {
             }
         }
     }
+    console.log(pairOne, pairTwo)
     return pairOne.length >= 2 && pairTwo.length >= 2;
 }
 
