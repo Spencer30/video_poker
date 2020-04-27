@@ -103,6 +103,7 @@ function App() {
     setWinPer(() => 0);
     handsPlayed = 0;
     winCount = 0;
+    localStorage.removeItem('gameInfo');
   }
 
   //Hold the Cards - puts yellow border around it
