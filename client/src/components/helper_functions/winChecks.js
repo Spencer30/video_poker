@@ -33,7 +33,7 @@ export const straightFlush = (card1, card2, card3, card4, card5) => {
         }
     } 
 
-    for(let i=1; i<4; i++){
+    for(let i=1; i<5; i++){
         if(hand[i].value - 1 !== hand[i-1].value){
             return false;
     }
@@ -120,7 +120,8 @@ export const straight = (card1, card2, card3, card4, card5) => {
             return true;
         }
     } 
-    for(let i=1; i<4; i++){
+    //7,8,9,10,10
+    for(let i=1; i<5; i++){
         if(hand[i].value - 1 !== hand[i-1].value){
             return false;
         }
