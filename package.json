@@ -1,0 +1,24 @@
+{
+  "name": "video_poker",
+  "version": "1.0.0",
+  "description": "Play video poker online",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spencer30/video_poker.git"
+  },
+  "author": "Spencer Lyons",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Spencer30/video_poker/issues"
+  },
+  "homepage": "https://github.com/Spencer30/video_poker#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
